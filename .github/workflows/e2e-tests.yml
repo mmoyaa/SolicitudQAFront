@@ -11,58 +11,70 @@ jobs:
     timeout-minutes: 60
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [18.x]
-
     steps:
-      - name: Checkout Frontend
+      # 1. Descargar código
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node.js ${{ matrix.node-version }}
+      # 2. Instalar Node 18 (compatible)
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: '18'
           cache: 'npm'
 
-      - name: Install dependencies
+      # 3. Instalar dependencias
+      - name: Install NPM dependencies
+        run: npm ci
+
+      # 4. Instalar Playwright y navegadores
+      - name: Install Playwright
+        run: npx playwright install --with-deps chromium
+
+      # 5. ESPERAR MÁS TIEMPO al inicio del servidor
+      - name: Start Angular server
         run: |
-          npm ci
-          npm install -g @angular/cli
+          timeout 120 npm start > /tmp/server.log 2>&1 &
+          echo "Esperando servidor Angular..."
+          for i in {1..60}; do
+            if curl -s http://localhost:4200 > /dev/null; then
+              echo "✅ Servidor listo en intento $i"
+              break
+            fi
+            echo "Intento $i/60..."
+            sleep 2
+          done
 
-      - name: Install Playwright browsers
-        run: npx playwright install --with-deps
-
-      - name: Start development server
+      # 6. Verificar que el servidor está corriendo
+      - name: Verify server
         run: |
-          npm start > /tmp/ng-serve.log 2>&1 &
-          sleep 20
-          if ! curl -f http://localhost:4200/; then
-            echo "Frontend no está disponible"
-            cat /tmp/ng-serve.log
-            exit 1
-          fi
+          curl -v http://localhost:4200 || (cat /tmp/server.log && exit 1)
 
-      - name: Run E2E tests
-        run: npm run e2e
+      # 7. Ejecutar tests (solo en Chromium para ser más rápido)
+      - name: Run Playwright tests
+        run: npx playwright test --project=chromium
         continue-on-error: true
 
-      - name: Generate Report
-        if: always()
-        run: node scripts/generate-report.js || echo "Report generation skipped"
-
-      - name: Upload Test Report
+      # 8. Cargar reportes
+      - name: Upload Playwright Report
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: playwright-report-${{ matrix.node-version }}
+          name: playwright-report
           path: playwright-report/
           retention-days: 30
 
-      - name: Upload HTML Report
+      - name: Upload Test Results
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: test-results-${{ matrix.node-version }}
+          name: test-results
           path: test-results/
           retention-days: 30
+
+      # 9. Mostrar logs si falló
+      - name: Show server logs if failed
+        if: failure()
+        run: |
+          echo "=== SERVIDOR LOG ==="
+          cat /tmp/server.log || echo "No hay logs"
