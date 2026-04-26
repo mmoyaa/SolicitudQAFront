@@ -1,37 +1,5 @@
-<testsuites id="" name="" tests="27" failures="0" skipped="24" errors="0" time="116.512328">
-<testsuite name="solicitud.spec.ts" timestamp="2026-04-26T04:59:25.390Z" hostname="chromium" tests="9" failures="0" skipped="6" time="110.495" errors="0">
-<testcase name="Formulario de Solicitud QA › Debe cargar el formulario correctamente" classname="solicitud.spec.ts" time="23.515">
-</testcase>
-<testcase name="Formulario de Solicitud QA › Debe llenar el formulario con datos válidos" classname="solicitud.spec.ts" time="19">
-</testcase>
-<testcase name="Formulario de Solicitud QA › Debe enviar el formulario con datos válidos" classname="solicitud.spec.ts" time="40.258">
-</testcase>
-<testcase name="Formulario de Solicitud QA › Debe mostrar un mensaje de éxito después de enviar" classname="solicitud.spec.ts">
-<skipped>
-</skipped>
-</testcase>
-<testcase name="Formulario de Solicitud QA › Debe validar que los campos requeridos sean obligatorios" classname="solicitud.spec.ts">
-<skipped>
-</skipped>
-</testcase>
-<testcase name="Formulario de Solicitud QA › Debe permitir limpiar el formulario y llenar de nuevo" classname="solicitud.spec.ts">
-<skipped>
-</skipped>
-</testcase>
-<testcase name="Formulario de Solicitud QA › Debe validar el formato de URL" classname="solicitud.spec.ts">
-<skipped>
-</skipped>
-</testcase>
-<testcase name="Performance y Accesibilidad › Debe cargar la página en tiempo razonable" classname="solicitud.spec.ts">
-<skipped>
-</skipped>
-</testcase>
-<testcase name="Performance y Accesibilidad › Debe ser accesible con navegación por teclado" classname="solicitud.spec.ts">
-<skipped>
-</skipped>
-</testcase>
-</testsuite>
-<testsuite name="solicitud.spec.ts" timestamp="2026-04-26T04:59:25.390Z" hostname="firefox" tests="9" failures="0" skipped="9" time="0" errors="0">
+<testsuites id="" name="" tests="27" failures="0" skipped="27" errors="0" time="84.033971">
+<testsuite name="solicitud.spec.ts" timestamp="2026-04-26T05:27:06.311Z" hostname="chromium" tests="9" failures="0" skipped="9" time="77.999" errors="0">
 <testcase name="Formulario de Solicitud QA › Debe cargar el formulario correctamente" classname="solicitud.spec.ts">
 <skipped>
 </skipped>
@@ -69,7 +37,45 @@
 </skipped>
 </testcase>
 </testsuite>
-<testsuite name="solicitud.spec.ts" timestamp="2026-04-26T04:59:25.390Z" hostname="webkit" tests="9" failures="0" skipped="9" time="0" errors="0">
+<testsuite name="solicitud.spec.ts" timestamp="2026-04-26T05:27:06.311Z" hostname="firefox" tests="9" failures="0" skipped="9" time="0" errors="0">
+<testcase name="Formulario de Solicitud QA › Debe cargar el formulario correctamente" classname="solicitud.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Formulario de Solicitud QA › Debe llenar el formulario con datos válidos" classname="solicitud.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Formulario de Solicitud QA › Debe enviar el formulario con datos válidos" classname="solicitud.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Formulario de Solicitud QA › Debe mostrar un mensaje de éxito después de enviar" classname="solicitud.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Formulario de Solicitud QA › Debe validar que los campos requeridos sean obligatorios" classname="solicitud.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Formulario de Solicitud QA › Debe permitir limpiar el formulario y llenar de nuevo" classname="solicitud.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Formulario de Solicitud QA › Debe validar el formato de URL" classname="solicitud.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Performance y Accesibilidad › Debe cargar la página en tiempo razonable" classname="solicitud.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Performance y Accesibilidad › Debe ser accesible con navegación por teclado" classname="solicitud.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="solicitud.spec.ts" timestamp="2026-04-26T05:27:06.311Z" hostname="webkit" tests="9" failures="0" skipped="9" time="0" errors="0">
 <testcase name="Formulario de Solicitud QA › Debe cargar el formulario correctamente" classname="solicitud.spec.ts">
 <skipped>
 </skipped>

@@ -12,69 +12,51 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Descargar código
       - name: Checkout
         uses: actions/checkout@v4
 
-      # 2. Instalar Node 18 (compatible)
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '18'
           cache: 'npm'
 
-      # 3. Instalar dependencias
-      - name: Install NPM dependencies
+      - name: Install dependencies
         run: npm ci
 
-      # 4. Instalar Playwright y navegadores
       - name: Install Playwright
         run: npx playwright install --with-deps chromium
 
-      # 5. ESPERAR MÁS TIEMPO al inicio del servidor
-      - name: Start Angular server
+      # ⭐ NUEVA ESTRATEGIA: Hacer build en lugar de servir
+      - name: Build Angular app
+        run: npm run build
+
+      # ⭐ NUEVA: Usar un servidor simple
+      - name: Start simple HTTP server
         run: |
-          timeout 120 npm start > /tmp/server.log 2>&1 &
-          echo "Esperando servidor Angular..."
-          for i in {1..60}; do
+          cd dist/solicitudQA/browser
+          npx http-server -p 4200 -c-1 > /tmp/server.log 2>&1 &
+          echo "Esperando servidor..."
+          for i in {1..30}; do
             if curl -s http://localhost:4200 > /dev/null; then
-              echo "✅ Servidor listo en intento $i"
+              echo "✅ Servidor listo"
               break
             fi
-            echo "Intento $i/60..."
-            sleep 2
+            sleep 1
           done
+          sleep 2
 
-      # 6. Verificar que el servidor está corriendo
       - name: Verify server
-        run: |
-          curl -v http://localhost:4200 || (cat /tmp/server.log && exit 1)
+        run: curl -v http://localhost:4200
 
-      # 7. Ejecutar tests (solo en Chromium para ser más rápido)
-      - name: Run Playwright tests
+      - name: Run tests
         run: npx playwright test --project=chromium
         continue-on-error: true
 
-      # 8. Cargar reportes
-      - name: Upload Playwright Report
+      - name: Upload report
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: playwright-report
           path: playwright-report/
           retention-days: 30
-
-      - name: Upload Test Results
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: test-results
-          path: test-results/
-          retention-days: 30
-
-      # 9. Mostrar logs si falló
-      - name: Show server logs if failed
-        if: failure()
-        run: |
-          echo "=== SERVIDOR LOG ==="
-          cat /tmp/server.log || echo "No hay logs"

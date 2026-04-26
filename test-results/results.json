@@ -134,18 +134,51 @@
                     {
                       "workerIndex": 0,
                       "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 23515,
-                      "errors": [],
+                      "status": "interrupted",
+                      "duration": 77999,
+                      "error": {
+                        "message": "Error: page.goto: Target page, context or browser has been closed",
+                        "stack": "Error: page.goto: Target page, context or browser has been closed\n    at C:\\Users\\User\\Documents\\Programando\\solicitudqa\\solicitudQA\\tests\\e2e\\solicitud.spec.ts:6:16",
+                        "location": {
+                          "file": "C:\\Users\\User\\Documents\\Programando\\solicitudqa\\solicitudQA\\tests\\e2e\\solicitud.spec.ts",
+                          "column": 16,
+                          "line": 6
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 4 |\u001b[39m   test\u001b[33m.\u001b[39mbeforeEach(\u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\n \u001b[90m 5 |\u001b[39m     \u001b[90m// Navegar a la página de solicitudes\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 6 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m'/solicitud'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m   |\u001b[39m                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 7 |\u001b[39m     \u001b[90m// Esperar a que el formulario esté cargado\u001b[39m\n \u001b[90m 8 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForSelector(\u001b[32m'form.solicitud-form'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 9 |\u001b[39m   })\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\User\\Documents\\Programando\\solicitudqa\\solicitudQA\\tests\\e2e\\solicitud.spec.ts",
+                            "column": 16,
+                            "line": 6
+                          },
+                          "message": "Error: page.goto: Target page, context or browser has been closed\n\n\u001b[0m \u001b[90m 4 |\u001b[39m   test\u001b[33m.\u001b[39mbeforeEach(\u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\n \u001b[90m 5 |\u001b[39m     \u001b[90m// Navegar a la página de solicitudes\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 6 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m'/solicitud'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m   |\u001b[39m                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 7 |\u001b[39m     \u001b[90m// Esperar a que el formulario esté cargado\u001b[39m\n \u001b[90m 8 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForSelector(\u001b[32m'form.solicitud-form'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 9 |\u001b[39m   })\u001b[33m;\u001b[39m\u001b[0m\n\u001b[2m    at C:\\Users\\User\\Documents\\Programando\\solicitudqa\\solicitudQA\\tests\\e2e\\solicitud.spec.ts:6:16\u001b[22m"
+                        },
+                        {
+                          "message": "Error: browserContext.close: Target page, context or browser has been closed"
+                        }
+                      ],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-04-26T04:59:29.232Z",
+                      "startTime": "2026-04-26T05:27:10.799Z",
                       "annotations": [],
-                      "attachments": []
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\User\\Documents\\Programando\\solicitudqa\\solicitudQA\\test-results\\solicitud-Formulario-de-So-50684-el-formulario-correctamente-chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\User\\Documents\\Programando\\solicitudqa\\solicitudQA\\tests\\e2e\\solicitud.spec.ts",
+                        "column": 16,
+                        "line": 6
+                      }
                     }
                   ],
-                  "status": "expected"
+                  "status": "skipped"
                 }
               ],
               "id": "84c015271d929b32f858-57affa0bb47325c54c50",
@@ -164,22 +197,8 @@
                   "expectedStatus": "passed",
                   "projectId": "chromium",
                   "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 19000,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-04-26T04:59:53.993Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
+                  "results": [],
+                  "status": "skipped"
                 }
               ],
               "id": "84c015271d929b32f858-31a932d8cb757247dbf9",
@@ -198,22 +217,8 @@
                   "expectedStatus": "passed",
                   "projectId": "chromium",
                   "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 40258,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-04-26T05:00:13.174Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
+                  "results": [],
+                  "status": "skipped"
                 }
               ],
               "id": "84c015271d929b32f858-617a61e4211d5e28b4e1",
@@ -232,54 +237,7 @@
                   "expectedStatus": "passed",
                   "projectId": "chromium",
                   "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "interrupted",
-                      "duration": 27722,
-                      "error": {
-                        "message": "Error: page.goto: Target page, context or browser has been closed\nCall log:\n\u001b[2m  - navigating to \"http://localhost:4200/solicitud\", waiting until \"load\"\u001b[22m\n",
-                        "stack": "Error: page.goto: Target page, context or browser has been closed\nCall log:\n\u001b[2m  - navigating to \"http://localhost:4200/solicitud\", waiting until \"load\"\u001b[22m\n\n    at C:\\Users\\User\\Documents\\Programando\\solicitudqa\\solicitudQA\\tests\\e2e\\solicitud.spec.ts:6:16",
-                        "location": {
-                          "file": "C:\\Users\\User\\Documents\\Programando\\solicitudqa\\solicitudQA\\tests\\e2e\\solicitud.spec.ts",
-                          "column": 16,
-                          "line": 6
-                        },
-                        "snippet": "\u001b[0m \u001b[90m 4 |\u001b[39m   test\u001b[33m.\u001b[39mbeforeEach(\u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\n \u001b[90m 5 |\u001b[39m     \u001b[90m// Navegar a la página de solicitudes\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 6 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m'/solicitud'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m   |\u001b[39m                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 7 |\u001b[39m     \u001b[90m// Esperar a que el formulario esté cargado\u001b[39m\n \u001b[90m 8 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForSelector(\u001b[32m'form.solicitud-form'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 9 |\u001b[39m   })\u001b[33m;\u001b[39m\u001b[0m"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "C:\\Users\\User\\Documents\\Programando\\solicitudqa\\solicitudQA\\tests\\e2e\\solicitud.spec.ts",
-                            "column": 16,
-                            "line": 6
-                          },
-                          "message": "Error: page.goto: Target page, context or browser has been closed\nCall log:\n\u001b[2m  - navigating to \"http://localhost:4200/solicitud\", waiting until \"load\"\u001b[22m\n\n\n\u001b[0m \u001b[90m 4 |\u001b[39m   test\u001b[33m.\u001b[39mbeforeEach(\u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\n \u001b[90m 5 |\u001b[39m     \u001b[90m// Navegar a la página de solicitudes\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 6 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m'/solicitud'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m   |\u001b[39m                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 7 |\u001b[39m     \u001b[90m// Esperar a que el formulario esté cargado\u001b[39m\n \u001b[90m 8 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForSelector(\u001b[32m'form.solicitud-form'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 9 |\u001b[39m   })\u001b[33m;\u001b[39m\u001b[0m\n\u001b[2m    at C:\\Users\\User\\Documents\\Programando\\solicitudqa\\solicitudQA\\tests\\e2e\\solicitud.spec.ts:6:16\u001b[22m"
-                        },
-                        {
-                          "message": "Error: browserContext.close: Target page, context or browser has been closed"
-                        }
-                      ],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-04-26T05:00:53.636Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "C:\\Users\\User\\Documents\\Programando\\solicitudqa\\solicitudQA\\test-results\\solicitud-Formulario-de-So-87fb7--de-éxito-después-de-enviar-chromium\\error-context.md"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "C:\\Users\\User\\Documents\\Programando\\solicitudqa\\solicitudQA\\tests\\e2e\\solicitud.spec.ts",
-                        "column": 16,
-                        "line": 6
-                      }
-                    }
-                  ],
+                  "results": [],
                   "status": "skipped"
                 }
               ],
@@ -763,10 +721,10 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-04-26T04:59:25.050Z",
-    "duration": 116512.328,
-    "expected": 3,
-    "skipped": 24,
+    "startTime": "2026-04-26T05:27:05.996Z",
+    "duration": 84033.97099999999,
+    "expected": 0,
+    "skipped": 27,
     "unexpected": 0,
     "flaky": 0
   }
