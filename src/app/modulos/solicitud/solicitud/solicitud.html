@@ -1,0 +1,69 @@
+<div class="solicitud-form-container">
+  <!-- Mensaje de éxito/error -->
+  <div *ngIf="mensaje" [ngClass]="'alerta ' + tipo_mensaje">
+    {{ mensaje }}
+  </div>
+
+  <form class="solicitud-form" [formGroup]="solicitudForm" (ngSubmit)="onSubmit()">
+    <h2>Solicitud de Proyecto</h2>
+    <div class="form-group">
+      <label for="nombre">Nombre</label>
+      <input type="text" id="nombre" formControlName="nombre" placeholder="Tu nombre" required />
+    </div>
+    <div class="form-group">
+      <label for="proyecto">Nombre del Proyecto</label>
+      <input
+        type="text"
+        id="proyecto"
+        formControlName="proyecto"
+        placeholder="Nombre del proyecto"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="encargado">Nombre del Encargado</label>
+      <input
+        type="text"
+        id="encargado"
+        formControlName="encargado"
+        placeholder="Nombre del encargado"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="url">URL del Proyecto</label>
+      <input
+        type="url"
+        id="url"
+        formControlName="url"
+        placeholder="https://tuprojecto.com"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="descripcion">Descripción del Proyecto</label>
+      <textarea
+        id="descripcion"
+        formControlName="descripcion"
+        placeholder="Describe el proyecto"
+        rows="4"
+        required
+      ></textarea>
+    </div>
+
+    <div class="form-group">
+      <label>Datos de Pruebas</label>
+      <textarea
+        id="datosPruebas"
+        formControlName="datosPruebas"
+        placeholder="Describe los datos de pruebas necesarios"
+        rows="4"
+        required
+      ></textarea>
+    </div>
+
+    <button type="submit" class="submit-btn" [disabled]="solicitudForm.invalid || cargando">
+      {{ cargando ? '⏳ Enviando...' : 'Enviar Solicitud' }}
+    </button>
+  </form>
+</div>
