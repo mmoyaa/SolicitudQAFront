@@ -51,6 +51,10 @@ jobs:
         run: npx playwright test --project=chromium
         continue-on-error: true
 
+      - name: Generate HTML report
+        if: always()
+        run: node scripts/generate-report.js || echo "Report generation skipped"
+
       - name: Upload Playwright Report
         if: always()
         uses: actions/upload-artifact@v4
@@ -59,7 +63,7 @@ jobs:
           path: playwright-report/
           retention-days: 30
 
-      - name: Upload Test Results JSON
+      - name: Upload Test Results
         if: always()
         uses: actions/upload-artifact@v4
         with:
@@ -67,12 +71,10 @@ jobs:
           path: test-results/
           retention-days: 30
 
-      - name: Show test summary
+      - name: Upload HTML Report
         if: always()
-        run: |
-          echo "=== TEST EXECUTION SUMMARY ==="
-          if [ -f test-results/results.json ]; then
-            cat test-results/results.json | head -20
-          else
-            echo "No test results found"
-          fi
+        uses: actions/upload-artifact@v4
+        with:
+          name: informe-html
+          path: test-results/informe.html
+          retention-days: 30
