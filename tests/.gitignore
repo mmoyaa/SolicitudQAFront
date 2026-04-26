@@ -1,0 +1,21 @@
+# Test Results
+test-results/
+test-results/
+*.html
+*.json
+
+# Playwright
+.auth/
+artifacts/
+.cache/
+
+# Node modules
+node_modules/
+package-lock.json
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
