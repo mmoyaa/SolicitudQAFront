@@ -195,7 +195,7 @@ test.describe('Performance y Accesibilidad', () => {
   test('Debe ser accesible con navegación por teclado', async ({ page }) => {
     await page.goto('/solicitud');
     await page.waitForSelector('form.solicitud-form');
-
+//caca
     // Navegar usando Tab
     await page.keyboard.press('Tab');
     let focusedElement = await page.evaluate(() => document.activeElement?.getAttribute('id'));
